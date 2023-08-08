@@ -1,30 +1,32 @@
 import React from 'react'
+import styles from "./Product.module.scss";
 
-const Product = () => {
+const Product = (props) => {
+	console.log(styles)
 	return (
-		<div className='product col'>
-						<div className="favorite">
+		<div className={styles.product}>
+						<div className={styles.favorite}>
 							<img
                                     width='30'
                                     height='30'
-                                    src='/img/unlike.svg'
+                                    src={'/img/unlike.svg'}
                                     alt='pic'
                                 />
 							</div>
-                            <div className='img'>
+                            <div className={styles.img}>
                                 <img
                                     width='133'
                                     height='112'
-                                    src='/img/s1.jpg'
+                                    src={props.url}
                                     alt='pic'
                                 />
                             </div>
-                            <div className='tt'>
-                                Мужские Кроссовки Nike Blazer Mid Suede
+                            <div className={styles.tt}>
+							{props.title}
                             </div>
-                            <div className='price-block'>
+                            <div className={styles.priceBlock}>
                                 <p>
-                                    Цена: <strong>1000 грн.</strong>
+                                    Цена: <strong>{props.price} грн.</strong>
                                 </p>
                                 <button>
                                     <img
