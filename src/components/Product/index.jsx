@@ -1,8 +1,15 @@
 import React from 'react'
 import styles from "./Product.module.scss";
 
-const Product = (props) => {
-	console.log(styles)
+const Product = ({url, title, price, addToBasket}) => {
+	const [isPlus, setIsPlus] = React.useState(false)
+
+	const handlerPlus = () => {
+		setIsPlus(!isPlus)
+		addToBasket()
+	}
+
+
 	return (
 		<div className={styles.product}>
 						<div className={styles.favorite}>
@@ -14,25 +21,26 @@ const Product = (props) => {
                                 />
 							</div>
                             <div className={styles.img}>
-                                <img
+                                <img 
                                     width='133'
                                     height='112'
-                                    src={props.url}
+                                    src={url}
                                     alt='pic'
                                 />
                             </div>
                             <div className={styles.tt}>
-							{props.title}
+							{title}
                             </div>
                             <div className={styles.priceBlock}>
                                 <p>
-                                    Цена: <strong>{props.price} грн.</strong>
+                                    Цена: <strong>{price} грн.</strong>
                                 </p>
                                 <button>
                                     <img
-                                        width='11'
-                                        height='11'
-                                        src='/img/plus.svg'
+                                        width='32'
+                                        height='32'
+						src={ !isPlus ? '/img/plus.svg' : '/img/check.svg' }
+						onClick={handlerPlus}
                                         alt='pic'
                                     />
                                 </button>

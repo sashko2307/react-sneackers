@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({onShowBasket}) => {
     return (
         <header className='header'>
             <div className='headerLeft'>
@@ -11,7 +11,7 @@ const Header = () => {
                 </div>
             </div>
             <div className='headerRight'>
-                <div className='busket'>
+                <div className='busket' onClick={onShowBasket}>
                     <img width='18' height='18' src='/img/card.svg' alt='pic' />
                     <p className='text'>1205 руб.</p>
                 </div>
